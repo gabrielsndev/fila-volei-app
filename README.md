@@ -1,2 +1,59 @@
-# fila-volei-app
- # Fila de Vôlei  **Fila de Vôlei** é um aplicativo web simples para gerenciar a fila de jogadores em uma partida de vôlei. O projeto permite que jogadores sejam adicionados à fila, formem times automaticamente e movam-se para o final da fila após cada partida. A persistência de dados é garantida utilizando o **localStorage**.  ## Funcionalidades  - **Adicionar Jogadores**: Adiciona novos jogadores à fila. - **Formação de Times**: O primeiro jogador da fila escolhe dois outros jogadores, formando um time. - **Finalizar Partida**: Após a formação do time, o time vai para o final da fila. - **Persistência de Dados**: A fila é salva no `localStorage`, garantindo que os dados não se percam ao recarregar a página. - **Resetar Fila**: Reinicia a fila e remove os dados salvos no `localStorage`.  ## Tecnologias Utilizadas  - **Angular**: Framework para construção da aplicação web. - **TypeScript**: Linguagem de programação utilizada no Angular. - **localStorage**: Para persistir a fila de jogadores entre sessões.  ## Estrutura do Projeto  O projeto é dividido em vários componentes para modularizar a aplicação:  ### Componentes  - **AppComponent**: Layout geral do aplicativo. - **ConfiguracoesComponent**: Seção para definir o tamanho do time. - **AdicionarJogadorComponent**: Formulário para adicionar jogadores à fila. - **FilaComponent**: Exibe a fila de jogadores e gerencia as escolhas de time. - **TimeAtualComponent**: Exibe os jogadores do time atual e finaliza a partida. - **FilaService**: Lógica de manipulação da fila e integração com `localStorage`.  ### Fluxo da Aplicação  1. **Adicionar Jogador**: O usuário digita o nome de um jogador e o adiciona à fila. 2. **Formação de Time**: O primeiro jogador escolhe dois outros jogadores da fila para formar um time. 3. **Finalização da Partida**: O time formado é movido para o final da fila. 4. **Persistência**: A fila é salva automaticamente no `localStorage` para persistir os dados.  ## Instalação  ### Pré-requisitos  - **Node.js** e **npm** (Node Package Manager) instalados no seu sistema.  ## Como Contribuir  Faça um fork do projeto.   Crie uma branch para sua feature: `git checkout -b minha-feature`   Comite suas mudanças: `git commit -am 'Adiciona nova funcionalidade'`   Envie para o repositório remoto: `git push origin minha-feature`   Abra um pull request.
+# FilaVolei
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.1.
+
+## Development server
+
+To start a local development server, run:
+
+```bash
+ng serve
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Code scaffolding
+
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+## Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+## Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
