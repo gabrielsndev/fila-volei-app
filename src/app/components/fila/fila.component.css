@@ -1,0 +1,30 @@
+.fila{
+    width: 95vw;
+    min-height: 500px;
+    max-height: 1000px;
+    overflow-y: auto; 
+    border: 3px solid var(--color-primary);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.player{
+    width: 90%;
+    height: 75px;
+    border: 3px solid var(--color-primary);
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: var(--color-text);
+}
+
+.material-icons{
+    font-size: 50px;
+    color: red;
+    border: solid 2px red;
+    border-radius: 50px;
+}
