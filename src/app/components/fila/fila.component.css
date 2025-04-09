@@ -28,3 +28,17 @@
     border: solid 2px red;
     border-radius: 50px;
 }
+
+.hightlight{
+    border: solid 6px var(--color-accent);
+    font-weight: bold;
+    font-size: 1.4em;
+    background-color: var(--color-selected);
+    transition: 0.2s;
+}
+
+.selected {
+    transition: 0.2s;
+    font-size: 1.2em;
+    background-color: var(--color-selected); 
+}

@@ -1,5 +1,11 @@
 <section class="fila">
-    <div class="player" *ngFor="let jogador of listaTeste">
+    <div class="player"
+        (click)="selecionarJogador(jogador)"
+        *ngFor="let jogador of listaTeste; let i = index"
+        [ngClass]="{
+            'hightlight': i == 0,
+            'selected': isSelecionado(jogador)
+        }">
         <h2>{{jogador}}</h2>
         <span class="material-icons">cancel</span>
     </div>
