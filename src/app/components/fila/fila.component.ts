@@ -32,7 +32,7 @@ export class FilaComponent {
       if (!this.jogadoresSelecionados.includes(primeiro)) {
         this.jogadoresSelecionados.unshift(primeiro);
     }
-  }
+    }
   }
 
 
