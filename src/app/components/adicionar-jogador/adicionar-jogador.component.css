@@ -41,3 +41,27 @@
     border: 1px solid rgb(0, 0, 0, 0.8);
 
 }
+
+.button-group{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.confirm{
+    padding: 15px 50px;
+    background-color: rgb(102, 41, 245);
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+}
+
+.close{
+    padding: 10px 35px;
+    background-color: red;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+}
