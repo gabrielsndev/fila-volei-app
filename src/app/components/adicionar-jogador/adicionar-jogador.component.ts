@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FilaService } from '../../service/fila.service';
 
 @Component({
   selector: 'app-adicionar-jogador',
@@ -8,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AdicionarJogadorComponent {
 
+  constructor(private filaService: FilaService) {}
+  fila: string[] = [];
+
+  ngOnInit(): void {
+    this.filaService.fila$.subscribe(fila => {
+      this.fila = fila;
+    });
+  }
+
+  adicionarJogador(jogador: string){
+    console.log(jogador)
+    this.filaService.adicionarJogador(jogador)
+  }
 }

@@ -12,13 +12,7 @@ export class FilaComponent {
   constructor(private filaService: FilaService) {}
 
   fila: string[] = [];
-  listaTeste = [
-    'Maria',
-    'João',
-    'Lucas',
-    'Wagner',
-    'Alice'
-  ];
+  
   jogadoresSelecionados: string[] = [];
 
 
@@ -27,8 +21,8 @@ export class FilaComponent {
       this.fila = fila;
     });
 
-    if (this.listaTeste.length > 0) {
-      const primeiro = this.listaTeste[0];
+    if (this.fila.length > 0) {
+      const primeiro = this.fila[0];
       if (!this.jogadoresSelecionados.includes(primeiro)) {
         this.jogadoresSelecionados.unshift(primeiro);
     }
@@ -38,7 +32,7 @@ export class FilaComponent {
 
 
   selecionarJogador(jogador:string): void{
-    const primeiro = this.listaTeste[0];
+    const primeiro = this.fila[0];
     if (jogador === primeiro) {
       return;
     }

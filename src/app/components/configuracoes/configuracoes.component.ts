@@ -16,7 +16,7 @@ export class ConfiguracoesComponent {
 
   private dialog = inject(Dialog);
   protected openModal(){
-    this.dialog.open(AdicionarJogadorComponent);
+    this.dialog.open(AdicionarJogadorComponent, {disableClose: true});
   }
 
   fila :string[] = [];

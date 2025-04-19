@@ -1,7 +1,7 @@
 <section class="fila">
     <div class="player"
         (click)="selecionarJogador(jogador)"
-        *ngFor="let jogador of listaTeste; let i = index"
+        *ngFor="let jogador of fila; let i = index"
         [ngClass]="{
             'hightlight': i == 0,
             'selected': isSelecionado(jogador)
