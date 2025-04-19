@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FilaService } from '../../service/fila.service';
+import { Dialog } from '@angular/cdk/dialog';
+import { AdicionarJogadorComponent } from '../adicionar-jogador/adicionar-jogador.component';
 
 @Component({
   selector: 'app-configuracoes',
@@ -12,7 +14,12 @@ export class ConfiguracoesComponent {
 
   constructor(private filaService: FilaService){}
 
-  fila :string[] = []
+  private dialog = inject(Dialog);
+  protected openModal(){
+    this.dialog.open(AdicionarJogadorComponent);
+  }
+
+  fila :string[] = [];
 
   ngOnInit(): void{
     this.filaService.fila$.subscribe(fila =>{
@@ -20,7 +27,7 @@ export class ConfiguracoesComponent {
     })
   }
 
-  maximoJogadores: number = 0
+  maximoJogadores: number = 0;
 
   embaralharFila(){}
 
