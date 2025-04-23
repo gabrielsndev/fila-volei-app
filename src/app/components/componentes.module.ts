@@ -26,7 +26,8 @@ import { ConfirmComponent } from './modais/confirm/confirm.component';
     ConfiguracoesComponent,
     AdicionarJogadorComponent,
     FilaComponent,
-    TimeAtualComponent
+    TimeAtualComponent,
+    ConfirmComponent
   ]
 })
 export class ComponentesModule { }

@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './confirm.component.css'
 })
 export class ConfirmComponent {
-
+  parametro = "adsa";
 }
