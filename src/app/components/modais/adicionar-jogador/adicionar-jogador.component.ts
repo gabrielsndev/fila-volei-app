@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FilaService } from '../../service/fila.service';
+import { Component, inject, Optional } from '@angular/core';
+import { FilaService } from '../../../service/fila.service';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-adicionar-jogador',
@@ -18,8 +19,13 @@ export class AdicionarJogadorComponent {
     });
   }
 
+dialogRef = inject(DialogRef, {optional: true})
+
   adicionarJogador(jogador: string){
     console.log(jogador)
     this.filaService.adicionarJogador(jogador)
+    this.dialogRef?.close()
   }
+
+
 }

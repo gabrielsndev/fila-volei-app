@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FilaService } from '../../service/fila.service';
 import { Dialog } from '@angular/cdk/dialog';
-import { AdicionarJogadorComponent } from '../adicionar-jogador/adicionar-jogador.component';
+import { AdicionarJogadorComponent } from '../modais/adicionar-jogador/adicionar-jogador.component';
 
 @Component({
   selector: 'app-configuracoes',
@@ -16,7 +16,7 @@ export class ConfiguracoesComponent {
 
   private dialog = inject(Dialog);
   protected openModal(){
-    this.dialog.open(AdicionarJogadorComponent, {disableClose: true});
+    this.dialog.open(AdicionarJogadorComponent, {disableClose: false});
   }
 
   fila :string[] = [];

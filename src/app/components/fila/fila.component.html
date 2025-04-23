@@ -7,6 +7,6 @@
             'selected': isSelecionado(jogador)
         }">
         <h2>{{jogador}}</h2>
-        <span class="material-icons">cancel</span>
+        <span (click)="deletePlayer(jogador)" class="material-icons">cancel</span>
     </div>
 </section>

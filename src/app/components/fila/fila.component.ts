@@ -54,5 +54,9 @@ export class FilaComponent {
   maximoJogadores:number = 4
 
 
+  deletePlayer(jogador: string){
+    this.filaService.removerJogador(jogador)
+  }
+
 
 }
