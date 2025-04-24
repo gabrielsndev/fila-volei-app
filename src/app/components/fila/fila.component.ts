@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FilaService } from '../../service/fila.service';
+import { Dialog } from '@angular/cdk/dialog';
+import { ConfirmComponent } from '../modais/confirm/confirm.component';
 
 @Component({
   selector: 'app-fila',
@@ -10,6 +12,18 @@ import { FilaService } from '../../service/fila.service';
 export class FilaComponent {
 
   constructor(private filaService: FilaService) {}
+
+  private dialog = inject(Dialog);
+  protected openModal(jogador:string){
+    this.dialog.open(ConfirmComponent, {
+      disableClose: false,
+      data: {message : "Excluir o Jogador da Fila",
+             action: "delete",
+             player : jogador
+      }
+    });
+  }
+
 
   fila: string[] = [];
   
@@ -53,10 +67,6 @@ export class FilaComponent {
 
   maximoJogadores:number = 4
 
-
-  deletePlayer(jogador: string){
-    this.filaService.removerJogador(jogador)
-  }
 
 
 }

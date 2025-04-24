@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { DIALOG_DATA } from '@angular/cdk/dialog';
+import { FilaService } from '../../../service/fila.service';
+import { Component, Inject } from '@angular/core';
+
 
 @Component({
   selector: 'app-confirm',
@@ -7,5 +10,30 @@ import { Component } from '@angular/core';
   styleUrl: './confirm.component.css'
 })
 export class ConfirmComponent {
-  parametro = "adsa";
+  constructor(@Inject(DIALOG_DATA) public data: {
+    message: string
+    action: string
+    player?: string}, private filaService: FilaService){}
+
+  fila: string[] = []
+
+  ngOnInit(): void {
+    this.filaService.fila$.subscribe(fila => {
+      this.fila = fila;
+    })}
+    
+
+  
+  callFuncions(){
+    switch (this.data.action) {
+      case "delete":
+          this.filaService.removerJogador(this.data.player!)
+          console.log(this.data.player)
+        break;
+    
+      default:
+        break;
+    }
+  }
+
 }
