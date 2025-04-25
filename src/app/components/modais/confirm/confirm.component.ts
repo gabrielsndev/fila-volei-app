@@ -1,6 +1,6 @@
-import { DIALOG_DATA } from '@angular/cdk/dialog';
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { FilaService } from '../../../service/fila.service';
-import { Component, Inject } from '@angular/core';
+import { Component, inject, Inject, Optional } from '@angular/core';
 
 
 @Component({
@@ -21,6 +21,9 @@ export class ConfirmComponent {
     this.filaService.fila$.subscribe(fila => {
       this.fila = fila;
     })}
+
+    dialogRef = inject(DialogRef, {optional: true})
+
     
 
   
@@ -28,7 +31,7 @@ export class ConfirmComponent {
     switch (this.data.action) {
       case "delete":
           this.filaService.removerJogador(this.data.player!)
-          console.log(this.data.player)
+          this.dialogRef?.close()
         break;
     
       default:
