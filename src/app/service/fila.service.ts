@@ -43,4 +43,24 @@ export class FilaService {
     this.fila = this.fila.filter(jogador => jogador !== nome);
     this.salvarFila();
   }
+
+
+
+  shuffleList(): void {
+    const filaAtual = [...this.filaSubject.value];
+  
+    for (let i = filaAtual.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [filaAtual[i], filaAtual[j]] = [filaAtual[j], filaAtual[i]];
+    }
+    this.fila = filaAtual;
+    this.filaSubject.next(this.fila);
+    localStorage.setItem('fila', JSON.stringify(this.fila));
+  }
+
+  clearList(): void {
+    this.fila = [];
+    this.filaSubject.next(this.fila);
+    localStorage.setItem('fila', JSON.stringify(this.fila));
+  }
 }
