@@ -8,8 +8,8 @@ import { BehaviorSubject } from 'rxjs';
 export class ConfigService {
   private qtdJogadores: number = 0;
   private descansoBicampeao: boolean = false;
+
   private qtdJogadoresSubject = new BehaviorSubject<number>(this.qtdJogadores);
-  public lalala:string = "";
   private descansoBicampeaoSubject = new BehaviorSubject<boolean>(this.descansoBicampeao);
 
   qtdJogadores$ = this.qtdJogadoresSubject.asObservable();
