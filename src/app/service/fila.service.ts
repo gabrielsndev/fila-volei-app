@@ -35,15 +35,11 @@ export class FilaService {
     }
   }
 
-  getFila() {
-    return this.fila;
-  }  
 
   removerJogador(nome:string){
     this.fila = this.fila.filter(jogador => jogador !== nome);
     this.salvarFila();
   }
-
 
 
   shuffleList(): void {
