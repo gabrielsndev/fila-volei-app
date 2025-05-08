@@ -19,18 +19,15 @@ export class ConfigService {
     this.carregarConfiguracoes();
   }
 
-  salvarQtdJogadores(): void {
+  private salvarQtdJogadores(): void {
     localStorage.setItem('qtdJogadores', this.qtdJogadores.toString());
   }
 
-  salvarDescansoBicampeao(): void {
+  private salvarDescansoBicampeao(): void {
     localStorage.setItem('descansoBicampeao', JSON.stringify(this.descansoBicampeao));
   }
 
   
-
-
-
 
   private carregarConfiguracoes(): void {
     const qtd = localStorage.getItem('qtdJogadores');
@@ -46,4 +43,12 @@ export class ConfigService {
       this.descansoBicampeaoSubject.next(this.descansoBicampeao);
     }
   }
+
+  public setMaximoJogadores(value : number) {
+    this.qtdJogadores = value;
+    this.qtdJogadoresSubject.next(value);
+    this.salvarQtdJogadores();
+  }
+
+
 }

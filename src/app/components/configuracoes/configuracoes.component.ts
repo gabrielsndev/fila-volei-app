@@ -2,7 +2,7 @@ import { AdicionarJogadorComponent } from '../modais/adicionar-jogador/adicionar
 import { ConfirmComponent } from '../modais/confirm/confirm.component';
 import { ConfigService } from '../../service/config.service';
 import { FilaService } from '../../service/fila.service';
-import { Component, inject, numberAttribute } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
@@ -42,14 +42,16 @@ export class ConfiguracoesComponent {
 
   fila :string[] = [];
 
+  qtdJogadores: number = 2;
+
   ngOnInit(): void{
-    this.filaService.fila$.subscribe(fila =>{
-      this.fila = fila;
-    })
+    this.filaService.fila$.subscribe(fila =>{ this.fila = fila; });
+    this.configService.qtdJogadores$.subscribe(valor => { this.qtdJogadores = valor})
+
   }
 
-  maximoJogadores(value: string) {
+  setMaximoJogadores(value: string) {
    let numero: number = Number.parseInt(value)
-   
+   this.configService.setMaximoJogadores(numero);
   }
 }
