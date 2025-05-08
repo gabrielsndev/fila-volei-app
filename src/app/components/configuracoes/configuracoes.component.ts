@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
-import { FilaService } from '../../service/fila.service';
-import { Dialog } from '@angular/cdk/dialog';
 import { AdicionarJogadorComponent } from '../modais/adicionar-jogador/adicionar-jogador.component';
 import { ConfirmComponent } from '../modais/confirm/confirm.component';
+import { ConfigService } from '../../service/config.service';
+import { FilaService } from '../../service/fila.service';
+import { Component, inject, numberAttribute } from '@angular/core';
+import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-configuracoes',
@@ -13,7 +14,7 @@ import { ConfirmComponent } from '../modais/confirm/confirm.component';
 
 export class ConfiguracoesComponent {
 
-  constructor(private filaService: FilaService){}
+  constructor(private filaService: FilaService, private configService: ConfigService){}
 
   private dialog = inject(Dialog);
   protected openModal(){
@@ -47,10 +48,8 @@ export class ConfiguracoesComponent {
     })
   }
 
-  maximoJogadores: number = 0;
-
-  embaralharFila(){}
-
-  zerarFila(){}
-
+  maximoJogadores(value: string) {
+   let numero: number = Number.parseInt(value)
+   
+  }
 }

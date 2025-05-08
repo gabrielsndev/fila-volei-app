@@ -27,6 +27,11 @@ export class ConfigService {
     localStorage.setItem('descansoBicampeao', JSON.stringify(this.descansoBicampeao));
   }
 
+  
+
+
+
+
   private carregarConfiguracoes(): void {
     const qtd = localStorage.getItem('qtdJogadores');
     const descanso = localStorage.getItem('descansoBicampeao');

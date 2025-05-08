@@ -3,8 +3,8 @@
 
   <div class="input-group">
     <label for="max-jogadores">Número de Jogadores:</label>
-    <select id="max-jogadores" [(ngModel)]="maximoJogadores">
-      <option *ngFor="let num of [2, 3, 4, 5, 6]" [value]="num">
+    <select id="max-jogadores" #values (click)="maximoJogadores(values.value)">
+      <option *ngFor="let num of [2, 3, 4, 5, 6]"  [value]="num">
         {{ num }}
       </option>
     </select>
