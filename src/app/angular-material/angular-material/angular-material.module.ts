@@ -10,7 +10,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSlideToggleModule
   ],
   exports: [
-
+  MatSlideToggleModule
   ]
 })
 export class AngularMaterialModule { }

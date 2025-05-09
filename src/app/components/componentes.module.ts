@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ConfiguracoesComponent } from './configuracoes/configuracoes.component';
+import { AngularMaterialModule } from '../angular-material/angular-material/angular-material.module';
 import { AdicionarJogadorComponent } from './modais/adicionar-jogador/adicionar-jogador.component';
-import { FilaComponent } from './fila/fila.component';
+import { ConfiguracoesComponent } from './configuracoes/configuracoes.component';
 import { TimeAtualComponent } from './time-atual/time-atual.component';
-import { FormsModule } from '@angular/forms';
 import { ConfirmComponent } from './modais/confirm/confirm.component';
+import { FilaComponent } from './fila/fila.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
 
 
@@ -20,7 +21,8 @@ import { ConfirmComponent } from './modais/confirm/confirm.component';
   imports: [
     CommonModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    AngularMaterialModule
   ],
   exports: [
     ConfiguracoesComponent,
