@@ -50,5 +50,11 @@ export class ConfigService {
     this.salvarQtdJogadores();
   }
 
+  public setDescansoJogadores(value: boolean) {
+    this.descansoBicampeao = value;
+    this.descansoBicampeaoSubject.next(value);
+    this.salvarDescansoBicampeao();
+  }
+
 
 }

@@ -43,15 +43,22 @@ export class ConfiguracoesComponent {
   fila :string[] = [];
 
   qtdJogadores: number = 2;
+  descansoBicampeao: boolean = false;
 
   ngOnInit(): void{
     this.filaService.fila$.subscribe(fila =>{ this.fila = fila; });
     this.configService.qtdJogadores$.subscribe(valor => { this.qtdJogadores = valor})
-
+    this.configService.descansoBicampeao$.subscribe(descanso => { this.descansoBicampeao = descanso})
   }
 
   setMaximoJogadores(value: string) {
    let numero: number = Number.parseInt(value)
    this.configService.setMaximoJogadores(numero);
   }
+
+  setDescansoBicampeao(){
+    this.configService.setDescansoJogadores(this.descansoBicampeao);
+  }
+
+
 }
