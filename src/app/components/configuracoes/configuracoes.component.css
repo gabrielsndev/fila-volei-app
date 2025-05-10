@@ -31,6 +31,12 @@
   border: 1px solid #ccc;
 }
 
+.warning{
+  color: red;
+  padding: 2px;
+  margin: 0px;
+}
+
 .button-group {
   display: flex;
   flex-direction: column;

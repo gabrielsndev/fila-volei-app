@@ -44,6 +44,8 @@ export class ConfiguracoesComponent {
 
   qtdJogadores: number = 2;
   descansoBicampeao: boolean = false;
+  warning = false;
+  jogadoresInsuficientes = false;
 
   ngOnInit(): void{
     this.filaService.fila$.subscribe(fila =>{ this.fila = fila; });
@@ -54,10 +56,34 @@ export class ConfiguracoesComponent {
   setMaximoJogadores(value: string) {
    let numero: number = Number.parseInt(value)
    this.configService.setMaximoJogadores(numero);
+   this.ifJogadoresInsuficientes()
   }
+
+
+  ifJogadoresInsuficientes(){
+    if(this.fila.length < this.qtdJogadores) {
+      this.jogadoresInsuficientes = true;
+
+      setTimeout(() => {
+        this.jogadoresInsuficientes = false;
+      }, 4000)
+    }
+  }
+
+  ifWarning(){
+    if(this.descansoBicampeao) {
+          this.warning = true;
+          setTimeout(() =>{
+            this.warning = false;
+          }, 4000)
+    }
+  }
+  
 
   setDescansoBicampeao(){
     this.configService.setDescansoJogadores(this.descansoBicampeao);
+    this.ifWarning();
+    
   }
 
 
