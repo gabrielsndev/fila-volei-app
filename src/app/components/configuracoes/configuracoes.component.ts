@@ -49,8 +49,8 @@ export class ConfiguracoesComponent {
 
   ngOnInit(): void{
     this.filaService.fila$.subscribe(fila =>{ this.fila = fila; });
-    this.configService.qtdJogadores$.subscribe(valor => { this.qtdJogadores = valor})
-    this.configService.descansoBicampeao$.subscribe(descanso => { this.descansoBicampeao = descanso})
+    this.configService.qtdJogadores$.subscribe(valor => { this.qtdJogadores = valor});
+    this.configService.descansoBicampeao$.subscribe(descanso => { this.descansoBicampeao = descanso});
   }
 
   setMaximoJogadores(value: string) {
@@ -83,8 +83,7 @@ export class ConfiguracoesComponent {
   setDescansoBicampeao(){
     this.configService.setDescansoJogadores(this.descansoBicampeao);
     this.ifWarning();
-    
   }
-
+  
 
 }

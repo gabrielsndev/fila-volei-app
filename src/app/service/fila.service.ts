@@ -8,10 +8,13 @@ import { BehaviorSubject } from 'rxjs';
 export class FilaService {
 
   private fila: string[] = [];
+  private selectedPlayer: string[] = []
 
   private filaSubject = new BehaviorSubject<string[]>(this.fila);
+  private selecetedPlayerSubjected = new BehaviorSubject<string[]>(this.selectedPlayer);
 
   fila$ = this.filaSubject.asObservable();
+  selectedPlayer$ = this.selecetedPlayerSubjected.asObservable();
 
   constructor() { 
     this.carregarFila();
@@ -59,4 +62,6 @@ export class FilaService {
     this.filaSubject.next(this.fila);
     localStorage.setItem('fila', JSON.stringify(this.fila));
   }
+
+
 }

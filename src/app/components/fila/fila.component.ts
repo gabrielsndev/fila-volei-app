@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FilaService } from '../../service/fila.service';
 import { Dialog } from '@angular/cdk/dialog';
 import { ConfirmComponent } from '../modais/confirm/confirm.component';
+import { ConfigService } from '../../service/config.service';
 
 @Component({
   selector: 'app-fila',
@@ -11,9 +12,10 @@ import { ConfirmComponent } from '../modais/confirm/confirm.component';
 })
 export class FilaComponent {
 
-  constructor(private filaService: FilaService) {}
+  constructor(private filaService: FilaService, private configService: ConfigService) {}
 
   private dialog = inject(Dialog);
+
   protected openModal(jogador:string){
     this.dialog.open(ConfirmComponent, {
       disableClose: false,
@@ -26,22 +28,29 @@ export class FilaComponent {
 
 
   fila: string[] = [];
+  maximoJogadores:number = 0;
+
   
   jogadoresSelecionados: string[] = [];
 
 
   ngOnInit(): void {
-    this.filaService.fila$.subscribe(fila => {
-      this.fila = fila;
-    });
+  this.filaService.fila$.subscribe(fila => {
+    this.fila = fila;
 
-    if (this.fila.length > 0) {
-      const primeiro = this.fila[0];
+    if (fila.length > 0) {
+      const primeiro = fila[0];
       if (!this.jogadoresSelecionados.includes(primeiro)) {
         this.jogadoresSelecionados.unshift(primeiro);
+      }
     }
-    }
-  }
+  });
+
+  this.configService.qtdJogadores$.subscribe(max => {
+    this.maximoJogadores = max;
+  });
+}
+
 
 
 
@@ -53,7 +62,8 @@ export class FilaComponent {
     
     if (this.jogadoresSelecionados.includes(jogador)) {
       this.jogadoresSelecionados = this.jogadoresSelecionados.filter(j => j !== jogador);
-    } else {
+    }
+    else {
       if(this.jogadoresSelecionados.length < this.maximoJogadores){
         this.jogadoresSelecionados.push(jogador);
       }
@@ -64,8 +74,6 @@ export class FilaComponent {
   isSelecionado(jogador: string): boolean {
     return this.jogadoresSelecionados.includes(jogador);
   }
-
-  maximoJogadores:number = 4
 
 
 

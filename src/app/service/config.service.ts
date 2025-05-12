@@ -1,11 +1,23 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { FilaService } from './fila.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ConfigService {
+
+  constructor(private filaService:FilaService) { 
+    this.carregarConfiguracoes();
+  }
+
+  ngOnInit(): void{
+    this.filaService.selectedPlayer$.subscribe(selecionados => { this.playerSelected = selecionados});
+  }
+
+  playerSelected: string[] = []
+  
   private qtdJogadores: number = 0;
   private descansoBicampeao: boolean = false;
 
@@ -15,9 +27,6 @@ export class ConfigService {
   qtdJogadores$ = this.qtdJogadoresSubject.asObservable();
   descansoBicampeao$ = this.descansoBicampeaoSubject.asObservable();
 
-  constructor() { 
-    this.carregarConfiguracoes();
-  }
 
   private salvarQtdJogadores(): void {
     localStorage.setItem('qtdJogadores', this.qtdJogadores.toString());
@@ -48,6 +57,7 @@ export class ConfigService {
     this.qtdJogadores = value;
     this.qtdJogadoresSubject.next(value);
     this.salvarQtdJogadores();
+    
   }
 
   public setDescansoJogadores(value: boolean) {
@@ -55,6 +65,6 @@ export class ConfigService {
     this.descansoBicampeaoSubject.next(value);
     this.salvarDescansoBicampeao();
   }
-
+  
 
 }
