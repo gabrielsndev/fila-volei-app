@@ -74,7 +74,6 @@ export class FilaService {
     if (qtd < this.jogadoresSelecionadosSubject.getValue().length) {
       const novaLista = this.jogadoresSelecionadosSubject.getValue().slice(0, qtd);
       this.jogadoresSelecionadosSubject.next(novaLista);
-      console.log(novaLista);
     }
   }
 
