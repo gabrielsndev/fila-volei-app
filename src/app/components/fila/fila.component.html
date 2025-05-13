@@ -3,7 +3,6 @@
         (click)="selecionarJogador(jogador)"
         *ngFor="let jogador of fila; let i = index"
         [ngClass]="{
-            'hightlight': i == 0,
             'selected': isSelecionado(jogador)
         }">
         <h2>{{jogador}}</h2>

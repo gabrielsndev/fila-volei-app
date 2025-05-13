@@ -7,6 +7,13 @@ import { BehaviorSubject } from 'rxjs';
 
 export class FilaService {
 
+  private jogadoresSelecionadosSubject = new BehaviorSubject<string[]>([]);
+  jogadoresSelecionados$ = this.jogadoresSelecionadosSubject.asObservable();
+
+  setJogadoresSelecionados(jogadores: string[]) {
+    this.jogadoresSelecionadosSubject.next(jogadores);
+  }
+
   private fila: string[] = [];
   private selectedPlayer: string[] = []
 
@@ -63,5 +70,12 @@ export class FilaService {
     localStorage.setItem('fila', JSON.stringify(this.fila));
   }
 
+  changeSelected(qtd: number){
+    if (qtd < this.jogadoresSelecionadosSubject.getValue().length) {
+      const novaLista = this.jogadoresSelecionadosSubject.getValue().slice(0, qtd);
+      this.jogadoresSelecionadosSubject.next(novaLista);
+      console.log(novaLista);
+    }
+  }
 
 }

@@ -57,7 +57,7 @@ export class ConfigService {
     this.qtdJogadores = value;
     this.qtdJogadoresSubject.next(value);
     this.salvarQtdJogadores();
-    
+    this.filaService.changeSelected(this.qtdJogadores);
   }
 
   public setDescansoJogadores(value: boolean) {

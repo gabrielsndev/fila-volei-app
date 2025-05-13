@@ -29,8 +29,6 @@ export class FilaComponent {
 
   fila: string[] = [];
   maximoJogadores:number = 0;
-
-  
   jogadoresSelecionados: string[] = [];
 
 
@@ -49,17 +47,14 @@ export class FilaComponent {
   this.configService.qtdJogadores$.subscribe(max => {
     this.maximoJogadores = max;
   });
+
+  this.filaService.jogadoresSelecionados$.subscribe(jogadores => {
+    this.jogadoresSelecionados = jogadores;
+  });
 }
 
 
-
-
   selecionarJogador(jogador:string): void{
-    const primeiro = this.fila[0];
-    if (jogador === primeiro) {
-      return;
-    }
-    
     if (this.jogadoresSelecionados.includes(jogador)) {
       this.jogadoresSelecionados = this.jogadoresSelecionados.filter(j => j !== jogador);
     }
@@ -68,6 +63,8 @@ export class FilaComponent {
         this.jogadoresSelecionados.push(jogador);
       }
     }
+
+    this.filaService.setJogadoresSelecionados(this.jogadoresSelecionados)
   }
 
 
