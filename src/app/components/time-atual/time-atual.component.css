@@ -1,4 +1,27 @@
 .main{
     margin: auto;
-    width: 200px;
+    width: 350px;
+    border: 1px solid red;
+}
+
+.title{
+    text-align: center;
+}
+
+.times{
+    display: flex;
+}
+
+.first-time{
+    height: 150px;
+    width: 250px;
+    text-align: center;
+    border: 1px solid orange;
+}
+
+.second-time{
+    height: 150px;
+    width: 250px;
+    text-align: center;
+    border: 1px solid blue;
 }
