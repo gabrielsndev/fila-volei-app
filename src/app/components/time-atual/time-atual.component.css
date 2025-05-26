@@ -1,6 +1,6 @@
 .main{
     margin: auto;
-    min-width: 95%;
+    max-width: 95%;
     border: 1px solid red;
     padding: 10px;
 }
@@ -45,16 +45,16 @@
 }
 
 .player{
-    width: 80%;
-    height: 55px;
+    width: 90%;
+    height: 45px;
     border: 3px solid var(--color-primary);
-    margin: 10px;
+    margin: auto;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     color: var(--color-text);
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .material-icons{
