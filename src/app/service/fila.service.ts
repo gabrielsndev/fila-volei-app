@@ -6,27 +6,25 @@ import { BehaviorSubject } from 'rxjs';
 })
 
 export class FilaService {
-
-  private jogadoresSelecionadosSubject = new BehaviorSubject<string[]>([]);
-  jogadoresSelecionados$ = this.jogadoresSelecionadosSubject.asObservable();
-
-  setJogadoresSelecionados(jogadores: string[]) {
-    this.jogadoresSelecionadosSubject.next(jogadores);
-  }
-
-  private fila: string[] = [];
-  private selectedPlayer: string[] = []
-
-  private filaSubject = new BehaviorSubject<string[]>(this.fila);
-  private selecetedPlayerSubjected = new BehaviorSubject<string[]>(this.selectedPlayer);
-
-  fila$ = this.filaSubject.asObservable();
-  selectedPlayer$ = this.selecetedPlayerSubjected.asObservable();
-
+  
   constructor() { 
     this.carregarFila();
   }
+  private fila: string[] = [];
+  private selectedPlayer: string[] = []
+  
+  private jogadoresSelecionadosSubject = new BehaviorSubject<string[]>([]);
+  private filaSubject = new BehaviorSubject<string[]>(this.fila);
+  private selecetedPlayerSubjected = new BehaviorSubject<string[]>(this.selectedPlayer);
 
+  jogadoresSelecionados$ = this.jogadoresSelecionadosSubject.asObservable();
+  fila$ = this.filaSubject.asObservable();
+  selectedPlayer$ = this.selecetedPlayerSubjected.asObservable();
+  
+  setJogadoresSelecionados(jogadores: string[]) {
+    this.jogadoresSelecionadosSubject.next(jogadores);
+  }
+  
   adicionarJogador(nome: string){
     this.fila.push(nome);
     this.salvarFila();
@@ -44,8 +42,8 @@ export class FilaService {
       this.filaSubject.next(this.fila); 
     }
   }
-
-
+  
+  
   removerJogador(nome:string){
     this.fila = this.fila.filter(jogador => jogador !== nome);
     this.salvarFila();

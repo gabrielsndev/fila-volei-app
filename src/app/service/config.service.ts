@@ -16,7 +16,7 @@ export class ConfigService {
     this.filaService.selectedPlayer$.subscribe(selecionados => { this.playerSelected = selecionados});
   }
 
-  playerSelected: string[] = []
+  playerSelected: string[] = [];
   
   private qtdJogadores: number = 0;
   private descansoBicampeao: boolean = false;

@@ -15,5 +15,30 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class TimeAtualService {
 
-  constructor(private filaService:FilaService, private configService: ConfigService) { }
+  constructor(private filaService:FilaService) { }
+
+  private timeA: string[] = [];
+  private timeB: string[] = [];
+  
+  private timeASubject = new BehaviorSubject<string[]>([]);
+  private timeBSubject = new BehaviorSubject<string[]>([]);
+
+  timeA$ = this.timeASubject.asObservable();
+  timeB$ = this.timeBSubject.asObservable();
+  
+  
+  ngOnInit(): void{
+    this.filaService.selectedPlayer$.subscribe(selecionados => { this.playerSelected = selecionados});
+  }
+
+  playerSelected: string[] = [];
+  
+  salvarTimes(){
+    localStorage.setItem('times', JSON.stringify([this.timeA, this.timeB]));
+    this.timeASubject.next(this.timeA);
+    this.timeBSubject.next(this.timeB);
+  }
+
+
+  
 }
