@@ -26,7 +26,6 @@ export class FilaComponent {
     });
   }
 
-
   fila: string[] = [];
   maximoJogadores:number = 0;
   jogadoresSelecionados: string[] = [];
@@ -67,11 +66,8 @@ export class FilaComponent {
     this.filaService.setJogadoresSelecionados(this.jogadoresSelecionados)
   }
 
-
   isSelecionado(jogador: string): boolean {
     return this.jogadoresSelecionados.includes(jogador);
   }
-
-
 
 }
