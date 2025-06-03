@@ -38,7 +38,6 @@ export class TimeAtualService {
     this.timeASubject.next(this.timeA);
     this.timeBSubject.next(this.timeB);
   };
-  
 
   definirTimeA(): void {
     this.timeA = this.jogadoresSelecionados; 
