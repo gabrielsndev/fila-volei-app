@@ -24,4 +24,12 @@ export class TimeAtualComponent {
 
   timeA:string[] = [];
   timeB:string[] = [];
+
+  definirtimeA() {
+    this.timesAtuais.definirTimeA();
+  }
+
+  definirtimeB() {
+    this.timesAtuais.definirTimeB();
+  }
 }

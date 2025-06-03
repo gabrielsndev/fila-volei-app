@@ -35,12 +35,6 @@ export class FilaComponent {
   this.filaService.fila$.subscribe(fila => {
     this.fila = fila;
 
-    if (fila.length > 0) {
-      const primeiro = fila[0];
-      if (!this.jogadoresSelecionados.includes(primeiro)) {
-        this.jogadoresSelecionados.unshift(primeiro);
-      }
-    }
   });
 
   this.configService.qtdJogadores$.subscribe(max => {

@@ -16,6 +16,7 @@ export class TimeAtualService {
 
   constructor(private filaService:FilaService) {
     this.carregarTimes();
+    this.filaService.jogadoresSelecionados$.subscribe(selecionados => { this.jogadoresSelecionados = selecionados});
   }
 
   private timeA: string[] = [];
@@ -28,10 +29,7 @@ export class TimeAtualService {
   timeB$ = this.timeBSubject.asObservable();
   
   
-  ngOnInit(): void {
-    this.filaService.selectedPlayer$.subscribe(selecionados => { this.playerSelected = selecionados});
-  }
-  playerSelected: string[] = [];
+  jogadoresSelecionados: string[] = [];
 
   salvarTimes() {
     localStorage.setItem('times', JSON.stringify([this.timeA, this.timeB]));
@@ -47,4 +45,18 @@ export class TimeAtualService {
     this.timeBSubject.next(this.timeB);
   };
   
+
+  definirTimeA(): void {
+    this.timeA = this.jogadoresSelecionados; 
+    this.timeASubject.next(this.timeA);
+    this.filaService.clearSelectPlayer();
+    this.salvarTimes();
+  };
+
+  definirTimeB(): void {
+    this.timeB = this.jogadoresSelecionados;
+    this.timeBSubject.next(this.timeB);
+    this.filaService.clearSelectPlayer();
+    this.salvarTimes();
+  }
 }

@@ -12,8 +12,9 @@ export class FilaService {
   }
   private fila: string[] = [];
   private selectedPlayer: string[] = []
+  private jogadoresSelecionados: string[] = []
   
-  private jogadoresSelecionadosSubject = new BehaviorSubject<string[]>([]);
+  private jogadoresSelecionadosSubject = new BehaviorSubject<string[]>(this.jogadoresSelecionados);
   private filaSubject = new BehaviorSubject<string[]>(this.fila);
   private selecetedPlayerSubjected = new BehaviorSubject<string[]>(this.selectedPlayer);
 
@@ -73,6 +74,15 @@ export class FilaService {
       const novaLista = this.jogadoresSelecionadosSubject.getValue().slice(0, qtd);
       this.jogadoresSelecionadosSubject.next(novaLista);
     }
+  }
+
+  clearSelectPlayer() {
+    const jogadoresSelecionados = this.jogadoresSelecionadosSubject.getValue();
+    jogadoresSelecionados.forEach(jogador => { 
+      this.removerJogador(jogador)
+    });
+    this.setJogadoresSelecionados([]);
+    
   }
 
 }

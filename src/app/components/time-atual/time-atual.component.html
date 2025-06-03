@@ -3,23 +3,25 @@
     <div class="times">
         <div class="first-time">
             <h3>Time A</h3>
-            <div class="player">
-                <h2>Fodastico</h2>
+            <div class="player"
+                *ngFor="let jogador of timeA">
+                <h2>{{jogador}}</h2>
                 <span  class="material-icons">cancel</span>
             </div>
             <div class="buttons">
-                <button class="button" mat-stroked-button>Adicionar Time</button>
+                <button class="button" mat-stroked-button (click)="definirtimeA()">Adicionar Time</button>
                 <button mat-stroked-button>Adicionar Jogador</button>
             </div>
         </div>
         <div class="second-time">
             <h3>Time B</h3>
-            <div class="player">
-                <h2>Fodastico</h2>
-                <span  class="material-icons">cancel</span>
+            <div class="player"
+                *ngFor="let jogador of timeB">
+                <h2>{{jogador}}</h2>
+                <span class="material-icons">cancel</span>
             </div>
             <div class="buttons">
-                <button class="button" mat-stroked-button>Adicionar Time</button>
+                <button class="button" mat-stroked-button (click)="definirtimeB()">Adicionar Time</button>
                 <button mat-stroked-button>Adicionar Jogador</button>
             </div>
         </div>
