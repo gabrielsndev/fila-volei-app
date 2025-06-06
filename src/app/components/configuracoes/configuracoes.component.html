@@ -3,20 +3,23 @@
 
   <div class="input-group">
     <label for="max-jogadores">Número de Jogadores:</label>
-    <select id="max-jogadores" [(ngModel)]="maximoJogadores">
-      <option *ngFor="let num of [2, 3, 4, 5, 6]" [value]="num">
+    <select id="max-jogadores" #values [(ngModel)]="qtdJogadores" (change)="setMaximoJogadores(values.value)">
+      <option *ngFor="let num of [2, 3, 4, 5, 6]"  [value]="num">
         {{ num }}
       </option>
     </select>
+    <p><mat-slide-toggle labelPosition="before" (change)="setDescansoBicampeao()" [(ngModel)]="descansoBicampeao">Bicampeão descansa </mat-slide-toggle></p>
+    <p *ngIf="warning" class="warning">*Com essa opção ativada, após duas vitórias consecutivas o time campeão passará uma partida fora</p>
   </div>
 
   <div class="button-group">
     <button (click)="openModal()">Adicionar Jogador a Fila</button>
-    <button (click)="embaralharFila()">Embaralhar Fila</button>
-    <button class="danger" (click)="zerarFila()">Zerar Fila</button>
+    <button (click)="openModalConfirmShuffle()">Embaralhar Fila</button>
+    <button class="danger" (click)="openModalConfirmClearList()">Zerar Fila</button>
   </div>
 
   <div class="info">
     <p><strong>Jogadores na fila:</strong> {{ fila.length }}</p>
+    <p *ngIf="jogadoresInsuficientes" class="warning">A quantidade de jogadores na fila não é suficiente para montar um novo time</p>
   </div>
 </section>

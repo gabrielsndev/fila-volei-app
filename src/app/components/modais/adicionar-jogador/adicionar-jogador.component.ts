@@ -19,10 +19,9 @@ export class AdicionarJogadorComponent {
     });
   }
 
-dialogRef = inject(DialogRef, {optional: true})
+  dialogRef = inject(DialogRef, {optional: true})
 
   adicionarJogador(jogador: string){
-    console.log(jogador)
     this.filaService.adicionarJogador(jogador)
     this.dialogRef?.close()
   }

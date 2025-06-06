@@ -1,11 +1,11 @@
 <section class="dialog">
     <div class="input">
         <span>Tem Certeza que Deseja:</span>
-        <span>{{parametro}}</span>
+        <span>{{data.message}}</span>
     </div>
 
     <div class="button-group">
-        <button class="confirm">Confirmar</button>
-        <button class="danger">Cancelar</button>
+        <button (click)="callFuncions()" class="confirm">Confirmar</button>
+        <button (click)="closeModal()" class="danger">Cancelar</button>
     </div>
 </section>
