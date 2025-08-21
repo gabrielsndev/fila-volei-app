@@ -6,7 +6,7 @@
             <div class="player"
                 *ngFor="let jogador of timeA">
                 <h2>{{jogador}}</h2>
-                <span  class="material-icons">cancel</span>
+                <span (click)="excluirJogador(jogador, true)" class="material-icons">cancel</span>
             </div>
             <div class="buttons">
                 <button class="button" mat-stroked-button (click)="definirtimeA()">Adicionar Time</button>
@@ -18,7 +18,7 @@
             <div class="player"
                 *ngFor="let jogador of timeB">
                 <h2>{{jogador}}</h2>
-                <span class="material-icons">cancel</span>
+                <span (click)="excluirJogador(jogador, false)" class="material-icons">cancel</span>
             </div>
             <div class="buttons">
                 <button class="button" mat-stroked-button (click)="definirtimeB()">Adicionar Time</button>

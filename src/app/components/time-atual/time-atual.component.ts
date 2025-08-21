@@ -14,11 +14,11 @@ export class TimeAtualComponent {
   ngOnInit(): void {
     this.timesAtuais.timeA$.subscribe(timeA => { 
       this.timeA = timeA;
-    })
+    });
 
     this.timesAtuais.timeB$.subscribe(timeB => {
       this.timeB = timeB;
-    })
+    });
 
   };
 
@@ -27,9 +27,13 @@ export class TimeAtualComponent {
 
   definirtimeA() {
     this.timesAtuais.definirTimeA();
-  }
+  };
 
   definirtimeB() {
     this.timesAtuais.definirTimeB();
-  }
+  };
+
+  excluirJogador(player: string, team: boolean): void {
+    this.timesAtuais.excluirJogador(player, team);
+  };
 }

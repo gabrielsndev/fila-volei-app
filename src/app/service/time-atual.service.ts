@@ -25,10 +25,20 @@ export class TimeAtualService {
   
   jogadoresSelecionados: string[] = [];
 
-  salvarTimes() {
+  salvarTimes(): void {
     localStorage.setItem('times', JSON.stringify([this.timeA, this.timeB]));
     this.timeASubject.next(this.timeA);
     this.timeBSubject.next(this.timeB);
+  };
+
+  excluirJogador(player: string, team: boolean): void {
+    if(team){
+      this.timeA = this.timeA.filter(jogador => jogador !== player);
+    } else {
+      this.timeB = this.timeB.filter(jogador => jogador !== player);
+    }
+    this.salvarTimes();
+    this.filaService.adicionarJogador(player);
   };
 
   carregarTimes() {
@@ -41,14 +51,12 @@ export class TimeAtualService {
 
   definirTimeA(): void {
     this.timeA = this.jogadoresSelecionados; 
-    this.timeASubject.next(this.timeA);
     this.filaService.clearSelectPlayer();
     this.salvarTimes();
   };
 
   definirTimeB(): void {
     this.timeB = this.jogadoresSelecionados;
-    this.timeBSubject.next(this.timeB);
     this.filaService.clearSelectPlayer();
     this.salvarTimes();
   }
