@@ -50,12 +50,18 @@ export class TimeAtualService {
   };
 
   definirTimeA(): void {
+    this.timeA.forEach(player => {
+      this.filaService.adicionarJogador(player)
+    });
     this.timeA = this.jogadoresSelecionados; 
     this.filaService.clearSelectPlayer();
     this.salvarTimes();
   };
 
   definirTimeB(): void {
+    this.timeB.forEach(player => {
+      this.filaService.adicionarJogador(player)
+    });
     this.timeB = this.jogadoresSelecionados;
     this.filaService.clearSelectPlayer();
     this.salvarTimes();
