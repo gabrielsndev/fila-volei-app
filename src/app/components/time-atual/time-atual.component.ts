@@ -1,4 +1,5 @@
 import { TimeAtualService } from '../../service/time-atual.service';
+import { ConfigService } from '../../service/config.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class TimeAtualComponent {
 
-  constructor(private timesAtuais: TimeAtualService) {};
+  constructor(private timesAtuais: TimeAtualService, private configuracao: ConfigService) {};
   
   ngOnInit(): void {
     this.timesAtuais.timeA$.subscribe(timeA => { 
@@ -20,8 +21,13 @@ export class TimeAtualComponent {
       this.timeB = timeB;
     });
 
+    this.configuracao.qtdJogadores$.subscribe(qtd => {
+      this.qtdTime = qtd;
+    });
+
   };
 
+  qtdTime:number = 0;
   timeA:string[] = [];
   timeB:string[] = [];
 
