@@ -52,7 +52,7 @@ export class FilaComponent {
       this.jogadoresSelecionados = this.jogadoresSelecionados.filter(j => j !== jogador);
     }
     else {
-      if(this.jogadoresSelecionados.length < this.maximoJogadores){
+      if(this.jogadoresSelecionados.length <= this.maximoJogadores){
         this.jogadoresSelecionados.push(jogador);
       }
     }
