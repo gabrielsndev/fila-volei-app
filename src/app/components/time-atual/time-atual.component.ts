@@ -1,5 +1,6 @@
 import { TimeAtualService } from '../../service/time-atual.service';
 import { ConfigService } from '../../service/config.service';
+import { Dialog } from '@angular/cdk/dialog';
 import { Component } from '@angular/core';
 
 @Component({

@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { FilaService } from '../../service/fila.service';
-import { Dialog } from '@angular/cdk/dialog';
 import { ConfirmComponent } from '../modais/confirm/confirm.component';
 import { ConfigService } from '../../service/config.service';
+import { FilaService } from '../../service/fila.service';
+import { Component, inject } from '@angular/core';
+import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-fila',

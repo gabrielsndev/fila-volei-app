@@ -7,6 +7,7 @@ import { FilaComponent } from './fila/fila.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { JogadorIndividualComponent } from './modais/jogador-individual/jogador-individual.component';
 
 
 
@@ -16,7 +17,8 @@ import { NgModule } from '@angular/core';
     AdicionarJogadorComponent,
     FilaComponent,
     TimeAtualComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    JogadorIndividualComponent
   ],
   imports: [
     CommonModule,
