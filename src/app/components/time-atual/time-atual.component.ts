@@ -23,6 +23,21 @@ export class TimeAtualComponent {
 
     this.configuracao.qtdJogadores$.subscribe(qtd => {
       this.qtdTime = qtd;
+
+      while (this.timeA.length > this.qtdTime) {
+        const playerRemovido = this.timeA.pop();
+        if (playerRemovido) {
+          this.timesAtuais.excluirJogador(playerRemovido, true);
+        }
+      }
+
+      while(this.timeB.length > this.qtdTime) {
+        const playerRemovido = this.timeB.pop();
+        if(playerRemovido) {
+          this.timesAtuais.excluirJogador(playerRemovido, false);
+        }
+      }
+      
     });
 
   };
