@@ -1,7 +1,7 @@
 import { TimeAtualService } from '../../../service/time-atual.service';
-import { DIALOG_DATA } from '@angular/cdk/dialog';
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { FilaService } from '../../../service/fila.service';
-import { Component, Inject } from '@angular/core';
+import { Component, inject, Inject } from '@angular/core';
 
 
 @Component({
@@ -21,9 +21,12 @@ export class JogadorIndividualComponent {
     private timesAtuais: TimeAtualService) {};
 
   fila: string[] = [];
+  dialogRef = inject(DialogRef, { optional: true });
 
   addPlayer(jogador: string) {
-    this.timesAtuais.addSinglePlayer(jogador, this.data.time)
+    this.timesAtuais.addSinglePlayer(jogador, this.data.time);
+    this.filaService.removerJogador(jogador);
+    this.dialogRef?.close();
   }
 
   ngOnInit(): void {
