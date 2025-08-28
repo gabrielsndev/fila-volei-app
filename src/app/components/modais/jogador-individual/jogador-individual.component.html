@@ -1,1 +1,11 @@
-<p>jogador-individual works!</p>
+<section class="dialog">
+    <h3>Escolha um Jogador</h3>
+
+    <div class="players">
+        <div class="player"
+            (click)="addPlayer(jogador)"
+            *ngFor="let jogador of fila; let i = index">
+            <h2>{{jogador}}</h2>
+        </div>
+    </div>
+</section>

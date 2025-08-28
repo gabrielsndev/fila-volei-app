@@ -66,4 +66,13 @@ export class TimeAtualService {
     this.filaService.clearSelectPlayer();
     this.salvarTimes();
   }
+
+    addSinglePlayer(jogador:string, time: boolean) {
+      if(time) {
+        this.timeA.push(jogador);
+      } else {
+        this.timeB.push(jogador);
+      }
+      this.salvarTimes();
+  }
 }

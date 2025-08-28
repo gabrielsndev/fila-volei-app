@@ -1,7 +1,8 @@
+import { JogadorIndividualComponent } from '../modais/jogador-individual/jogador-individual.component';
 import { TimeAtualService } from '../../service/time-atual.service';
 import { ConfigService } from '../../service/config.service';
 import { Dialog } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-time-atual',
@@ -43,6 +44,7 @@ export class TimeAtualComponent {
 
   };
 
+  private dialog = inject(Dialog);
   qtdTime:number = 0;
   timeA:string[] = [];
   timeB:string[] = [];
@@ -58,4 +60,13 @@ export class TimeAtualComponent {
   excluirJogador(player: string, team: boolean): void {
     this.timesAtuais.excluirJogador(player, team);
   };
+
+
+  protected openModal(team: boolean){
+    this.dialog.open(JogadorIndividualComponent, {
+      disableClose: false,
+      data: {time: team}
+    })
+  };
+
 }
