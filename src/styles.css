@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+/* 
 :root {
     --color-primary: #0077C0;
     --color-secondary: #FFCC00;
@@ -8,6 +8,19 @@
     --color-accent: #00C853;
     --color-selected: #d3f9d8
   }
+
+ */
+
+:root {
+  --primary-blue: #1e3a8a;   /* azul escuro elegante */
+  --secondary-yellow: #facc15; /* amarelo vibrante */
+  --danger-red: #ef4444;
+  --danger-red-hover: #dc2626;
+  --neutral-bg: #f9fafb;
+  --neutral-text: #333;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
   
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
