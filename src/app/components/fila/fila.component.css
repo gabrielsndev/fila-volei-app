@@ -1,45 +1,72 @@
-.fila{
-    width: 95vw;
-    min-height: 500px;
-    max-height: 1000px;
-    overflow-y: auto; 
-    border: 3px solid var(--color-primary);
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: auto;
+.fila {
+  width: 70%;
+  max-width: 600px;
+  max-width: 800px;
+  min-height: 500px;
+  max-height: 1000px;
+  overflow-y: auto;
+  border: 3px solid var(--primary-blue);
+  border-radius: 16px;
+  margin: 0px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--neutral-bg);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
-.player{
-    width: 90%;
-    height: 75px;
-    border: 3px solid var(--color-primary);
-    margin: 10px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: var(--color-text);
+.player {
+  width: 100%;
+  min-height: 70px;
+  padding: 0 16px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  color: var(--neutral-text);
+  font-size: 2em;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
-.material-icons{
-    font-size: 50px;
-    color: red;
-    border: solid 2px red;
-    border-radius: 50px;
+.player h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-blue);
 }
 
-.hightlight{
-    border: solid 6px var(--color-accent);
-    font-weight: bold;
-    font-size: 1.4em;
-    background-color: var(--color-selected);
-    transition: 0.2s;
+.player .material-icons {
+  font-size: 22px;
+  color: var(--danger-red);
+  background: rgba(239, 68, 68, 0.1);
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.player .material-icons:hover {
+  background: var(--danger-red);
+  color: white;
+  transform: scale(1.1);
+}
+
+.hightlight {
+  border: 3px solid var(--secondary-yellow);
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-color: rgba(250, 204, 21, 0.15);
+  transition: 0.2s;
 }
 
 .selected {
-    transition: 0.2s;
-    font-size: 1.2em;
-    background-color: var(--color-selected); 
+  background-color: var(--danger-red);
+  font-size: 2em;
+  border: 2px solid var(--primary-blue);
+  transition: 0.2s;
 }
