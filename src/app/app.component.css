@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Limelight&display=swap");
+
+.site-header {
+  text-align: center;
+  padding: 10px;
+  background: var(--primary-blue);
+  color: var(--secondary-yellow);
+  font-family: "Limelight", sans-serif;
+  font-style: normal;
+  font-size: 1.1em;
+  border-bottom: 4px solid var(--faint-blue);
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 15px;
+  background: var(--primary-blue);
+  color: #fff;
+  font-size: 0.9rem;
+  border-top: 3px solid var(--faint-blue);
+}
+
+.site-footer a {
+  color: var(--secondary-yellow);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
