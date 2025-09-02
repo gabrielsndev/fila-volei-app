@@ -80,7 +80,7 @@
 }
 
 .button-group button:not(.danger):hover {
-  background: #152d66; 
+  background: #152d66;
 }
 
 .button-group .danger {

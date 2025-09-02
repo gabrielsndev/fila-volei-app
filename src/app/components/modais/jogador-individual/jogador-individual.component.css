@@ -1,36 +1,98 @@
-.dialog{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 450px;
-    width: 350px;
-    background-color: aquamarine;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+.dialog {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 420px);
+  max-height: 80vh;
+  background: var(--neutral-bg);
+  border-radius: 16px;
+  border-top: 6px solid var(--primary-blue);
+  box-shadow: 0 12px 32px var(--shadow-color);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+  box-sizing: border-box;
+  animation: modal-in 0.2s ease-out;
 }
 
-.player{
-    width: 90%;
-    height: 58px;
-    border: 3px solid var(--color-primary);
-    margin: 10px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: var(--color-text);
+.dialog h3 {
+  margin: 0;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--secondary-yellow);
 }
 
-        
 .players {
-    overflow-y: auto;
-    width: 100%;
-    max-height: 375px;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 4px;
+}
+
+.dialog .player {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 14px;
+  border: 2px solid var(--primary-blue);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--neutral-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease,
+    border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.dialog .player:hover {
+  border-color: var(--secondary-yellow);
+  background: rgba(250, 204, 21, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px var(--shadow-color);
+}
+
+.dialog .player:active {
+  transform: translateY(0);
+}
+
+.dialog .player h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--primary-blue);
+}
+
+.players::-webkit-scrollbar {
+  width: 8px;
+}
+.players::-webkit-scrollbar-track {
+  background: transparent;
+}
+.players::-webkit-scrollbar-thumb {
+  background: rgba(30, 58, 138, 0.35);
+  border-radius: 8px;
+}
+.players:hover::-webkit-scrollbar-thumb {
+  background: rgba(30, 58, 138, 0.55);
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -46%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }

@@ -1,68 +1,79 @@
 .dialog {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 175px;
-    width: 280px;
-    background: var(--neutral-bg);
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px var(--shadow-color);
-    border-top: 2px solid var(--primary-blue);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 175px;
+  width: 280px;
+  background: var(--neutral-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px var(--shadow-color);
+  border-top: 2px solid var(--primary-blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .dialog .input {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
 }
 
 .dialog .input span {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--neutral-text);
-    text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--neutral-text);
+  text-align: center;
 }
 
 .dialog .button-group {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
 }
 
 .dialog .button-group button {
-    padding: 10px 30px;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
-    transition: all 0.25s ease;
+  padding: 10px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.25s ease;
 }
 
 .dialog .button-group .confirm {
-    background: var(--primary-blue);
+  background: var(--primary-blue);
 }
 
 .dialog .button-group .confirm:hover {
-    background: var(--faint-blue);
+  background: var(--faint-blue);
 }
 
 .dialog .button-group .danger {
-    background: var(--danger-red);
+  background: var(--danger-red);
 }
 
 .dialog .button-group .danger:hover {
-    background: var(--danger-red-hover);
+  background: var(--danger-red-hover);
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -46%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
