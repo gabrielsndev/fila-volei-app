@@ -1,68 +1,68 @@
-.dialog{
+.dialog {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 250px;
-    width: 200px;
-    background-color: aquamarine;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    height: 175px;
+    width: 280px;
+    background: var(--neutral-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px var(--shadow-color);
+    border-top: 2px solid var(--primary-blue);
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.title{
-    margin-top: -20px;
-}
-
-.input{
-    padding: 10px;
-    height: 100px;
+.dialog .input {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    gap: 8px;
     align-items: center;
 }
 
-.input span{
-    font-size: 1.3em;
+.dialog .input span {
+    font-size: 1.2rem;
     font-weight: 600;
+    color: var(--neutral-text);
     text-align: center;
 }
 
-#name{
-    padding: 10px;
-    border-radius: 7px;
-    font-size: 1em;
-    border: 1px solid rgb(0, 0, 0, 0.8);
-
-}
-
-.button-group{
-    height: 100px;
+.dialog .button-group {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
 }
 
-.confirm{
-    padding: 8px 50px;
-    background-color: rgb(102, 41, 245);
-    border-radius: 15px;
-    color: white;
+.dialog .button-group button {
+    padding: 10px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
+    color: white;
+    transition: all 0.25s ease;
 }
 
-.danger{
-    padding: 8px 20px;
-    background-color: red;
-    border-radius: 15px;
-    color: white;
-    cursor: pointer;
+.dialog .button-group .confirm {
+    background: var(--primary-blue);
+}
+
+.dialog .button-group .confirm:hover {
+    background: var(--faint-blue);
+}
+
+.dialog .button-group .danger {
+    background: var(--danger-red);
+}
+
+.dialog .button-group .danger:hover {
+    background: var(--danger-red-hover);
 }

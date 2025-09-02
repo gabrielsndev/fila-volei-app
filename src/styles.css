@@ -14,6 +14,8 @@
 :root {
   --primary-blue: #1e3a8a;
   --secondary-yellow: #facc15;
+  --faint-yellow: #fff3ac;
+  --faint-blue: #5775c9;
   --danger-red: #ef4444;
   --danger-red-hover: #dc2626;
   --neutral-bg: #f9fafb;

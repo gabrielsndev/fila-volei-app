@@ -1,7 +1,6 @@
 .fila {
-  width: 70%;
+  width: 80%;
   max-width: 600px;
-  max-width: 800px;
   min-height: 500px;
   max-height: 1000px;
   overflow-y: auto;
@@ -31,6 +30,8 @@
   font-weight: 500;
   transition: all 0.2s ease;
   cursor: pointer;
+  transition: 0.2s;
+  box-sizing: border-box;
 }
 
 .player h2 {
@@ -56,17 +57,10 @@
   transform: scale(1.1);
 }
 
-.hightlight {
-  border: 3px solid var(--secondary-yellow);
-  font-weight: bold;
-  font-size: 1.2rem;
-  background-color: rgba(250, 204, 21, 0.15);
-  transition: 0.2s;
-}
-
 .selected {
-  background-color: var(--danger-red);
+  background-color: var(--faint-yellow);
   font-size: 2em;
+  color: green;
   border: 2px solid var(--primary-blue);
   transition: 0.2s;
 }
